@@ -90,7 +90,7 @@ const getWeatherData = function (event) {
 
           var date = document.createElement("h1");
           dateEl.textContent = "";
-          date.textContent = myCityValue.toUpperCase() + " " + dateCall;
+          date.textContent = myCityValue;
           dateEl.appendChild(date);
 
           console.log(citySearch.value);
@@ -102,12 +102,12 @@ const getWeatherData = function (event) {
 
           var rh01 = document.createElement("h3");
           rh.textContent = "";
-          rh01.textContent = "Relative Humidity:" + data.current.humidity;
+          rh01.textContent = "Humidity:" + data.current.humidity;
           weatherNowRH.appendChild(rh01);
 
           var ws01 = document.createElement("h3");
           ws.textContent = "";
-          ws01.textContent = "Wind Speed:" + data.current.wind_speed;
+          ws01.textContent = "Wind:" + data.current.wind_speed;
           weatherNowWS.appendChild(ws01);
 
           var uv01 = document.createElement("h3");
