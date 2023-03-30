@@ -1,8 +1,7 @@
 var APIkey = "7bf7f64189595f977e6ba12b82dac79d";
 var citySearch = document.querySelector("#inputSearch");
 var buttonAction = document.querySelector(".btn");
-// var weatherNowTemp = document.getElementById("weatherNowTemp");
-var dateEl = document.getElementById("date");
+let dateEl = document.getElementById("date");
 var temp = document.getElementById("weatherNowTemp");
 var rh = document.getElementById("weatherNowRH");
 var ws = document.getElementById("weatherNowWS");
@@ -10,6 +9,8 @@ var uv = document.getElementById("weatherNowUV");
 var icon = document.getElementById("weatherNowICON");
 var dateCall = Date();
 var searchHistory = document.querySelector("#prevSearch");
+let cityEl = document.querySelector("#city");
+var myCityValue = citySearch.value.trim();
 
 function images() {}
 
@@ -19,11 +20,30 @@ function fiveDay(data, container) {
   this.container.innerHTML = "";
 
   this.render = function () {
-    var loopDay = document.createElement("p");
-    var loopTemp = document.createElement("p");
-    var loopRh = document.createElement("p");
-    var loopWs = document.createElement("p");
-    var loopUv = document.createElement("p");
+    var loopDay = document.createElement("h1");
+    cityEl.textContent = "";
+    city.textContent = loopDay;
+    cityEl.appendChild(loopDay);
+    console.log(loopDay);
+
+    var loopTemp = document.createElement("h1");
+    cityEl.textContent = "";
+    data.textContent = loopTemp;
+    cityEl.appendChild(loopTemp);
+    console.log(loopTemp);
+
+    var loopRh = document.createElement("h1");
+    cityEl.textContent = "";
+    data.textContent = loopRh;
+    cityEl.appendChild(loopRh);
+    console.log(loopRh);
+
+    var loopWs = document.createElement("h1");
+    cityEl.textContent = "";
+    data.textContent = loopWs;
+    cityEl.appendChild(loopWs);
+
+    var loopUv = document.createElement("h1");
     var icons = this.data.weather[0].icon;
     var iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
     var images = document.createElement("img");
@@ -32,9 +52,9 @@ function fiveDay(data, container) {
     var date = new Date(this.data.dt * 1000);
     console.log(date.toLocaleDateString());
     loopDay.textContent = date.toLocaleDateString();
-    loopTemp.textContent = loopTemp.textContent = "Temp: " + this.data.temp.day;
+    loopTemp.textContent = "Temp: " + Math.round(this.data.temp.day);
     loopRh.textContent = "Humidity: " + this.data.humidity;
-    loopWs.textContent = "Wind Speed: " + this.data.wind_speed;
+    loopWs.textContent = "Wind: " + Math.round(this.data.wind_speed);
     loopUv.textContent = "UV Index: " + this.data.uvi;
     if (this.data.uvi <= 2.99) {
       loopUv.style.backgroundColor = "green";
@@ -92,12 +112,13 @@ const getWeatherData = function (event) {
           dateEl.textContent = "";
           date.textContent = myCityValue;
           dateEl.appendChild(date);
+          console.log(date);
 
           console.log(citySearch.value);
 
           var temp01 = document.createElement("h3");
           temp.textContent = "";
-          temp01.textContent = "Temp:" + data.current.temp;
+          temp01.textContent = Math.round(data.current.temp) + "°";
           weatherNowTemp.appendChild(temp01);
 
           var rh01 = document.createElement("h3");
@@ -122,7 +143,6 @@ const getWeatherData = function (event) {
           "http://openweathermap.org/img/w/" +
             data.current.weather[0].icon +
             ".png";
-          console.log(data);
 
           for (let index = 0; index < 5; index++) {
             var dailyPull = new fiveDay(

@@ -11,54 +11,65 @@
   </head>
 
   <body class="bg-black">
+  <body class="bg-black">
     <header>
-      <div class="bg-black fs-1 text-white text-center col-12">
-        Weather Dashboard
-      </div>
-    </header>
-
-    <div class="">
-      <div class="row m-1 ms-3">
-        <ul class=" search row col-sm-3 text-center">
-          <li class="list-group-item container bg-black">
-            <div class="input-group bg-dark">
-              <div
-                class="btn btn-secondary btn-outline-secondary text-white"
-                type="button"
-                id="searchButton button-addon1"
-              >
-                Search
-              </div>
-              <input
-                type="text"
-                class="input form-control"
-                placeholder="Search Cities"
-                aria-label="Example text with button addon"
-                aria-describedby="button-addon1"
-                id="inputSearch"
-              />
+    <div class="m-1 mx-5 d-flex col-sm-12 justify-content-center">
+      <ul class=" search row text-center">
+        <li class="list-group-item bg-black">
+          <div class="input-group bg-black">
+            <div class="bg-black fs-1 text-white text-start col-12">
+              Today's Weather
             </div>
+            <div
+            class="btn btn-secondary btn-outline-secondary text-white"
+            type="button"
+              id="searchButton button-addon1"
+              >
+              Search
+            </div>
+            <input
+            type="text"
+            class="input form-control"
+            placeholder="Search Cities"
+            aria-label="Example text with button addon"
+            aria-describedby="button-addon1"
+            id="inputSearch"
+            />
+          </div>
+          <div class="row">
+            <ul id="prevSearch" class="col"></ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
 
-            <ul id="prevSearch"></ul>
-          </li>
-        </ul>
+
+    <div class="container">
+      <div class="box row d-flex justify-content-center text-light" id="weatherNow">
+        <div class="row">
+          <div class="city col d-flex align-self-center justify-content-between text-light" id="date"></div>
+          <img class="d-flex align-self-center"  id="weatherNowICON" style="height: 60px ;"></img>
+        </div>
+        <div class=" todayTemp d-flex justify-content-center m-3">
+          <div class="" id="weatherNowTemp"></div>
+        </div>
+        <div class="row my-3">
+        <div class="col d-felx alighn-self-end text-center" id="weatherNowRH"></div>
+        <div class="col d-felx alighn-self-end text-center" id="weatherNowWS"></div>
+        <div class="col d-felx alighn-self-end text-center" id="weatherNowUV"></div>
+        </div>
       </div>
     </div>
-    <div class="container col box border border-1 bg-secondary-subtle" id="weatherNow">
-      <div class="" id="date"></div>
-      <div class="" id="weatherNowTemp"></div>
-      <div class="" id="weatherNowRH"></div>
-      <div class="" id="weatherNowWS"></div>
-      <div class="" id="weatherNowUV"></div>
-      <img id="weatherNowICON" style="height: 40px !important;"></img>
-    </div>
 
-    <div class="row d-flex justify-content-evenly m-2">
-      <div class="col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2 m-2" id="day1"></div>
-      <div class="col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2 m-2" id="day2"></div>
-      <div class="col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2 m-2" id="day3"></div>
-      <div class="col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2 m-2" id="day4"></div>
-      <div class="col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2 m-2" id="day5"></div>
+    <div id="city" class="text-light"></div>
+
+    <div class="row d-flex justify-content-evenly">
+      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day1"></div>
+      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day2"></div>
+      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day3"></div>
+      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day4"></div>
+      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day5"></div>
     </div>
 
 
