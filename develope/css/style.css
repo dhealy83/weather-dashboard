@@ -1,6 +1,14 @@
-img {
+.font {
+    font-family: 'Lato', sans-serif;
+}
+
+.todayImg {
     max-height: 100px !important;
     width: auto !important;
+    margin-left: 0px !important;
+    margin-bottom: 0px !important;
+    left: 0px !important;
+    bottom: 0px !important;
 }
 
 .todayTemp {
@@ -11,4 +19,27 @@ img {
     font-size: 50px !important;
     color: antiquewhite;
     height: 50px !important;
+}
+
+loopTemp {
+    position: relative;
+
+    /* max-height: 20px; */
+    /* font-size: 20px !important; */
+    left: 80px;
+    /* padding-top: 10px; */
+}
+
+loopUv  {
+    position: relative;
+    width: 115px !important;
+    left: 20px;
+}
+
+img    {
+    position: relative;
+    height: 50px !important;
+    width: auto !important;
+    left: 60px;
+    bottom: 8px;
 }

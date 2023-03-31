@@ -8,73 +8,73 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="./develope/css/reset.css" />
     <link rel="stylesheet" href="./develope/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   </head>
 
   <body class="bg-black">
-  <body class="bg-black">
-    <header>
-    <div class="m-1 mx-5 d-flex col-sm-12 justify-content-center">
-      <ul class=" search row text-center">
-        <li class="list-group-item bg-black">
-          <div class="input-group bg-black">
-            <div class="bg-black fs-1 text-white text-start col-12">
-              Today's Weather
+    <header class="m-3">
+      <div class="col m-3">
+        <ul class=" search row text-center">
+          <li class="list-group-item bg-black">
+            <div class="input-group bg-black">
+              <div class="bg-black fs-1 text-white text-start col-12 m-1 font">
+                Today's Weather
+              </div>
+              <div
+              class="btn btn-secondary btn-outline-secondary rounded-start text-white"
+              type="button"
+                id="searchButton button-addon1"
+                >
+                Search
+              </div>
+              <input
+              type="text"
+              class="input form-control"
+              placeholder="Search Cities"
+              aria-label="Example text with button addon"
+              aria-describedby="button-addon1"
+              id="inputSearch"
+              />
             </div>
-            <div
-            class="btn btn-secondary btn-outline-secondary text-white"
-            type="button"
-              id="searchButton button-addon1"
-              >
-              Search
+            <div class="row">
+              <ul id="prevSearch" class="col"></ul>
             </div>
-            <input
-            type="text"
-            class="input form-control"
-            placeholder="Search Cities"
-            aria-label="Example text with button addon"
-            aria-describedby="button-addon1"
-            id="inputSearch"
-            />
+          </li>
+        </ul>
+      </div>
+    </header>
+    
+    <main>
+      <div class="row d-flex justify-content-evenly m-0 font">
+        <div class="col col-lg-6 col-md-10 col-sm-12 box row text-light" id="weatherNow">
+          <div class=" d-flex">
+            <div class="city col d-flex align-self-center  text-light" id="date"></div>
+            <img class="d-flex align-self-center todayImg"  id="weatherNowICON" style="height: 60px ;"></img>
           </div>
-          <div class="row">
-            <ul id="prevSearch" class="col"></ul>
+          <div class=" todayTemp d-flex justify-content-center m-3 my-5">
+            <div class="" id="weatherNowTemp"></div>
           </div>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-
-    <div class="container">
-      <div class="box row d-flex justify-content-center text-light" id="weatherNow">
-        <div class="row">
-          <div class="city col d-flex align-self-center justify-content-between text-light" id="date"></div>
-          <img class="d-flex align-self-center"  id="weatherNowICON" style="height: 60px ;"></img>
+          <div class=" my-3 d-flex justify-content-between">
+            <div class="col d-felx alighn-self-end text-start" id="weatherNowRH"></div>
+            <div class="col d-felx alighn-self-end text-center" id="weatherNowWS"></div>
+            <div class="col d-felx alighn-self-end text-end" id="weatherNowUV"></div>
+          </div>
         </div>
-        <div class=" todayTemp d-flex justify-content-center m-3">
-          <div class="" id="weatherNowTemp"></div>
-        </div>
-        <div class="row my-3">
-        <div class="col d-felx alighn-self-end text-center" id="weatherNowRH"></div>
-        <div class="col d-felx alighn-self-end text-center" id="weatherNowWS"></div>
-        <div class="col d-felx alighn-self-end text-center" id="weatherNowUV"></div>
+        
+        <div class="col-lg-5 col-md-10 col-sm-11 m-0">
+          <div class="col">
+            <div class="box row bg-secondary d-flex rounded-top-2 mb-1" id="day1"></div>
+            <div class="box row bg-secondary d-flex mb-1 " id="day2"></div>
+            <div class="box row bg-secondary d-flex mb-1 " id="day3"></div>
+            <div class="box row bg-secondary d-flex mb-1 " id="day4"></div>
+            <div class="box row bg-secondary d-flex rounded-bottom-2 mb-3" id="day5"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
 
-    <div id="city" class="text-light"></div>
-
-    <div class="row d-flex justify-content-evenly">
-      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day1"></div>
-      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day2"></div>
-      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day3"></div>
-      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day4"></div>
-      <div class="box col-lg-2 col-md-4 col-sm-6 row bg-secondary d-flex rounded-2" id="day5"></div>
-    </div>
-
-
-
-    <main></main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script

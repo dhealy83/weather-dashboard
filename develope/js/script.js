@@ -12,60 +12,57 @@ var searchHistory = document.querySelector("#prevSearch");
 let cityEl = document.querySelector("#city");
 var myCityValue = citySearch.value.trim();
 
-function images() {}
-
 function fiveDay(data, container) {
   this.data = data;
   this.container = container;
   this.container.innerHTML = "";
 
   this.render = function () {
-    var loopDay = document.createElement("h1");
-    cityEl.textContent = "";
-    city.textContent = loopDay;
-    cityEl.appendChild(loopDay);
-    console.log(loopDay);
+    var loopDay = document.createElement("loopDay");
+    loopDay.className = "fs-4 col col-4 my-1";
 
-    var loopTemp = document.createElement("h1");
-    cityEl.textContent = "";
-    data.textContent = loopTemp;
-    cityEl.appendChild(loopTemp);
-    console.log(loopTemp);
+    var loopTemp = document.createElement("loopTemp");
+    loopTemp.className = "fs-3 col col-4 my-1 d-flex justify-content-end";
 
-    var loopRh = document.createElement("h1");
-    cityEl.textContent = "";
-    data.textContent = loopRh;
-    cityEl.appendChild(loopRh);
-    console.log(loopRh);
+    var images = document.createElement("img", "loopIcon");
+    images.className = " col col-4";
 
-    var loopWs = document.createElement("h1");
-    cityEl.textContent = "";
-    data.textContent = loopWs;
-    cityEl.appendChild(loopWs);
+    var loopRh = document.createElement("loopRh");
+    loopRh.className = " col col-4 my-1 mb-2 d-flex justify-content-start";
 
-    var loopUv = document.createElement("h1");
-    var icons = this.data.weather[0].icon;
-    var iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
-    var images = document.createElement("img");
-    images.src = iconUrl;
-    console.log(loopDay.textContent);
+    var loopWs = document.createElement("loopWs");
+    loopWs.className = " col col-4 my-1 mb-2 d-flex justify-content-center";
+
+    var loopUv = document.createElement("loopUv");
+    loopUv.className = " col col-4 my-1 mb-2 d-flex justify-content-end";
+
     var date = new Date(this.data.dt * 1000);
-    console.log(date.toLocaleDateString());
+
+    var icons = this.data.weather[0].icon;
+    icons.className = " col col-4";
+
+    var iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
+
+    images.src = iconUrl;
     loopDay.textContent = date.toLocaleDateString();
-    loopTemp.textContent = "Temp: " + Math.round(this.data.temp.day);
+    loopTemp.textContent = Math.round(this.data.temp.day) + "°";
     loopRh.textContent = "Humidity: " + this.data.humidity;
     loopWs.textContent = "Wind: " + Math.round(this.data.wind_speed);
-    loopUv.textContent = "UV Index: " + this.data.uvi;
+    loopUv.textContent = "UV Index: " + Math.round(this.data.uvi);
+
     if (this.data.uvi <= 2.99) {
-      loopUv.style.backgroundColor = "green";
+      loopUv.style = "background-color: rgba(0,255,0,0.3); border-radius: 10px";
     } else if (this.data.uvi >= 3 && this.data.uvi <= 5.99) {
-      loopUv.style.backgroundColor = "yellow";
+      loopUv.style =
+        "background-color:rgba(255,255,0,0.3); border-radius: 10px";
     } else if (this.data.uvi >= 6 && this.data.uvi <= 7.99) {
-      loopUv.style.backgroundColor = "orange";
+      loopUv.style =
+        "background-color: rgba(255, 165, 0, 0.3); border-radius: 10px";
     } else if (this.data.uvi > 8) {
-      loopUv.style.backgroundColor = "red";
+      loopUv.style = "background-color: rgba(255,0,0,0.3); border-radius: 10px";
     }
-    this.container.append(loopDay, loopTemp, loopRh, loopWs, loopUv, images);
+
+    this.container.append(loopDay, loopTemp, images, loopRh, loopWs, loopUv);
   };
 }
 
@@ -176,5 +173,3 @@ function renderSearchHistory() {
 renderSearchHistory();
 
 buttonAction.addEventListener("click", getWeatherData);
-
-// the temperature, the humidity, the wind speed, and the UV index
