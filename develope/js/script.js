@@ -19,27 +19,27 @@ function fiveDay(data, container) {
 
   this.render = function () {
     var loopDay = document.createElement("loopDay");
-    loopDay.className = "fs-4 col col-4 my-1";
+    loopDay.className = "col fs-4  col-4 my-1";
 
     var loopTemp = document.createElement("loopTemp");
-    loopTemp.className = "fs-3 col col-4 my-1 d-flex justify-content-end";
+    loopTemp.className = "col fs-3  col-4 my-1";
 
-    var images = document.createElement("img", "loopIcon");
-    images.className = " col col-4";
+    var images = document.createElement("img");
+    images.className = "col col-4 d-flex justify-content-start";
 
     var loopRh = document.createElement("loopRh");
-    loopRh.className = " col col-4 my-1 mb-2 d-flex justify-content-start";
+    loopRh.className = "col col-4 my-1 mb-2 d-flex justify-content-start";
 
     var loopWs = document.createElement("loopWs");
-    loopWs.className = " col col-4 my-1 mb-2 d-flex justify-content-center";
+    loopWs.className = "col col-4 my-1 row d-flex justify-content-center";
 
     var loopUv = document.createElement("loopUv");
-    loopUv.className = " col col-4 my-1 mb-2 d-flex justify-content-end";
+    loopUv.className = "col col-4 m-2 d-flex justify-content-end";
 
     var date = new Date(this.data.dt * 1000);
 
     var icons = this.data.weather[0].icon;
-    icons.className = " col col-4";
+    icons.className = " row col-4";
 
     var iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
 
@@ -51,18 +51,24 @@ function fiveDay(data, container) {
     loopUv.textContent = "UV Index: " + Math.round(this.data.uvi);
 
     if (this.data.uvi <= 2.99) {
-      loopUv.style = "background-color: rgba(0,255,0,0.3); border-radius: 10px";
+      loopUv.style =
+        "background-color: rgba(0,255,0,0.3); border-radius: 12px;";
     } else if (this.data.uvi >= 3 && this.data.uvi <= 5.99) {
       loopUv.style =
-        "background-color:rgba(255,255,0,0.3); border-radius: 10px";
+        "background-color:rgba(255,255,0,0.3); border-radius: 12px;";
     } else if (this.data.uvi >= 6 && this.data.uvi <= 7.99) {
       loopUv.style =
-        "background-color: rgba(255, 165, 0, 0.3); border-radius: 10px";
+        "background-color: rgba(255, 165, 0, 0.3); border-radius: 12px;";
     } else if (this.data.uvi > 8) {
-      loopUv.style = "background-color: rgba(255,0,0,0.3); border-radius: 10px";
+      loopUv.style =
+        "background-color: rgba(255,0,0,0.3); border-radius: 12px;";
     }
 
-    this.container.append(loopDay, loopTemp, images, loopRh, loopWs, loopUv);
+    this.container.append(loopDay, loopTemp, images);
+    this.container.className = "col fiveDayRow1 bg-dark";
+    this.container.append(loopRh, loopWs, loopUv);
+    this.container.className =
+      "row fiveDayRow2 bg-dark d-flex justify-content-between";
   };
 }
 
