@@ -25,7 +25,7 @@ function fiveDay(data, container) {
     loopTemp.className = "col fs-3  col-4 my-1";
 
     var images = document.createElement("img");
-    images.className = "col col-4 d-flex justify-content-start";
+    images.className = "col col-4 d-flex justify-content-start pe-4";
 
     var loopRh = document.createElement("loopRh");
     loopRh.className = "col col-4 my-1 mb-2 d-flex justify-content-start";
@@ -165,13 +165,14 @@ function renderSearchHistory() {
   }
   for (let index = 0; index < savedCities.length; index++) {
     var searchItem = document.createElement("li");
-    var searchButton = document.createElement("button");
-    searchButton.textContent = savedCities[index];
-    searchButton.addEventListener("click", function (event) {
+    var searchListItem = document.createElement("li");
+    searchListItem.className = "m-1 border-bottom";
+    searchListItem.textContent = savedCities[index];
+    searchListItem.addEventListener("click", function (event) {
       citySearch.value = savedCities[index];
       getWeatherData(event);
     });
-    searchItem.appendChild(searchButton);
+    searchItem.appendChild(searchListItem);
     searchHistory.appendChild(searchItem);
   }
 }

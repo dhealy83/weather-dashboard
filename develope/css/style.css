@@ -33,7 +33,7 @@ loopTemp {
 
 loopUv {
     position: relative;
-    display: inline-flex;
+    display: flex;
     /* width: 115px !important; */
     /* margin-right: 13px; */
 
@@ -74,4 +74,13 @@ img    {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 8px;
+}
+
+.disclaimer {
+    text-align: justify;
+}
+
+.pastSearch {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
