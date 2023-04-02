@@ -11,7 +11,7 @@ var dateCall = Date();
 var searchHistory = document.querySelector("#prevSearch");
 let cityEl = document.querySelector("#city");
 var myCityValue = citySearch.value.trim();
-const clearEl = document.getElementById("clear-history");
+var clearEl = document.getElementById("clear-history");
 
 function fiveDay(data, container) {
   this.data = data;
