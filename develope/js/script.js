@@ -11,6 +11,7 @@ var dateCall = Date();
 var searchHistory = document.querySelector("#prevSearch");
 let cityEl = document.querySelector("#city");
 var myCityValue = citySearch.value.trim();
+const clearEl = document.getElementById("clear-history");
 
 function fiveDay(data, container) {
   this.data = data;
@@ -22,7 +23,7 @@ function fiveDay(data, container) {
     loopDay.className = "col fs-4  col-4 my-1";
 
     var loopTemp = document.createElement("loopTemp");
-    loopTemp.className = "col fs-3  col-4 my-1";
+    loopTemp.className = "col fs-3  col-4 my-1 d-flex justify-content-start";
 
     var images = document.createElement("img");
     images.className = "col col-4 d-flex justify-content-start pe-4";
@@ -34,7 +35,7 @@ function fiveDay(data, container) {
     loopWs.className = "col col-4 my-1 row d-flex justify-content-center";
 
     var loopUv = document.createElement("loopUv");
-    loopUv.className = "col col-4 m-2 d-flex justify-content-end";
+    loopUv.className = "col col-4 m-2 d-flex justify-content-center";
 
     var date = new Date(this.data.dt * 1000);
 
@@ -180,3 +181,9 @@ function renderSearchHistory() {
 renderSearchHistory();
 
 buttonAction.addEventListener("click", getWeatherData);
+buttonAction.addEventListener("click", renderSearchHistory);
+
+clearEl.addEventListener("click", function () {
+  searchHistory = [];
+  renderSearchHistory();
+});

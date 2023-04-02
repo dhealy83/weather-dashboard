@@ -32,16 +32,18 @@ loopTemp {
 }
 
 loopUv {
-    position: relative;
-    display: flex;
-    /* width: 115px !important; */
-    /* margin-right: 13px; */
+    max-width: 120px !important;
+    padding-bottom: 2px ;
 
 }
 
 loopWs {
-    position: relative;
-    /* margin-right: 45px; */
+
+    max-width: 120px !important;
+}
+
+loopRh {
+    max-width: 120px !important;
 }
 
 img    {
