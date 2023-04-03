@@ -11,13 +11,11 @@ var dateCall = Date();
 var searchHistory = document.querySelector("#prevSearch");
 let cityEl = document.querySelector("#city");
 var myCityValue = citySearch.value.trim();
-var clearEl = document.getElementById("clear-history");
 
 function fiveDay(data, container) {
   this.data = data;
   this.container = container;
   this.container.innerHTML = "";
-
   this.render = function () {
     var loopDay = document.createElement("loopDay");
     loopDay.className = "col fs-4  col-4 my-1";
@@ -118,8 +116,6 @@ const getWeatherData = function (event) {
           dateEl.appendChild(date);
           console.log(date);
 
-          console.log(citySearch.value);
-
           var temp01 = document.createElement("h3");
           temp.textContent = "";
           temp01.textContent = Math.round(data.current.temp) + "°";
@@ -154,6 +150,7 @@ const getWeatherData = function (event) {
               document.getElementById("day" + (index + 1))
             );
             dailyPull.render();
+            citySearch.value = "";
           }
         });
     });
@@ -183,7 +180,15 @@ renderSearchHistory();
 buttonAction.addEventListener("click", getWeatherData);
 buttonAction.addEventListener("click", renderSearchHistory);
 
-clearEl.addEventListener("click", function () {
-  searchHistory = [];
-  renderSearchHistory();
+citySearch.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    buttonAction.click();
+  }
+});
+
+var clearButton = document.getElementById("clearButton");
+clearButton.addEventListener("click", function () {
+  localStorage.clear();
+  location.reload();
 });
